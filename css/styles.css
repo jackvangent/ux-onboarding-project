@@ -1,0 +1,35 @@
+h1 {
+	font: 2em Verdana;
+	color: #5A5A70;
+	padding-bottom: 0.2em;
+	padding-left: 0.4em;
+	border-bottom: 1px solid #62CECE;
+}
+
+h3 {
+	font: 1.3em Verdana;
+	color: #5A5A70;
+}
+
+body {
+	background: #DDDDDD;
+	margin-left: 6%;
+	margin-top: 3%;
+}
+
+.box {
+	background: #E5EAEA;
+	width: 40%;
+	border: 1px solid #C6C6C6;
+	border-radius: 15px;
+}
+
+.info {
+	font: 100% Verdana;
+	padding-left: 1em;
+	padding-bottom: 0.6em;
+}
+
+.info p {
+	padding-left: 1em;
+}
