@@ -2,19 +2,36 @@ h1 {
 	font: 2em Verdana;
 	color: #5A5A70;
 	padding-bottom: 0.2em;
-	padding-left: 0.4em;
-	border-bottom: 1px solid #62CECE;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	border-bottom: 1px solid #3498db;
 }
 
 h3 {
 	font: 1.3em Verdana;
 	color: #5A5A70;
+	margin-bottom: 1em;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	float: right;
+	font-style: italic;
+	text-decoration: underline;
+	color: #5A5A70;
+	outline: 0;
+}
+
+button:hover {
+	color: #3498db;
 }
 
 body {
 	background: #DDDDDD;
 	margin-left: 6%;
 	margin-top: 3%;
+	text-decoration: #FFF;
 }
 
 .box {
