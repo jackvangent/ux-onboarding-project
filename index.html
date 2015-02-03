@@ -7,23 +7,27 @@
 		<script src="lib/angular.min.js"></script>
 		<script src="lib/angular-ui-router.min.js"></script>
 		<script src="lib/angular-resource.min.js"></script>
-		<script src="assets/myApp.js"></script>
-		<script src="assets/script.js"></script>
+		<script src="assets/js/modules/myApp.js"></script>
+		<script src="assets/js/routes/routes.js"></script>
+		<script src="assets/js/controllers/minCtrl.js"></script>
 	</head>
-	<body>
-		<div class="box">
+	<body class="box">
+		<div>
 			<header>
 				<h1>User Profile</h1>
 			</header>
-			<main>
-			<div class="info">
-				<h3>Jack Van Gent<button type="button" id="minimize">collapse</button></h3>
-				<div id="innerInfo">
-					<p>Email: jackvangent1994@gmail.com</p>
-					<p>Phone: 319-830-1628</p>
-				</div>
+			<div class="innerbox">
+				<main>
+				<div ui-view></div>
+				</main>
 			</div>
-			</main>
 		</div>
 	</body>
+	<footer>
+		<ul>
+			<li><a ui-sref="Profile">user info</a></li>
+			<li><a ui-sref="EditProfile">edit profile</a></li>
+			<li><a ui-sref="UserList">user list</a></li>
+		</ul>
+	</footer>
 </html>

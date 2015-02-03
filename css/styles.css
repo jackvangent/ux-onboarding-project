@@ -7,24 +7,44 @@ h1 {
 	border-bottom: 1px solid #3498db;
 }
 
+h1 a {
+	font-size: 0.44em;
+}
+
 h3 {
 	font: 1.3em Verdana;
 	color: #5A5A70;
 	margin-bottom: 1em;
+	position: relative;
+}
+
+a {
+	font-size: 0.8em;
+	color: #3498db;
 }
 
 button {
 	background-color: transparent;
 	border: none;
-	float: right;
 	font-style: italic;
 	text-decoration: underline;
 	color: #5A5A70;
 	outline: 0;
+	position: absolute;
+	bottom: 1px;
+	right: 0;
 }
 
 button:hover {
 	color: #3498db;
+}
+
+button::-moz-focus-inner {
+	border: 0;
+}
+
+a:hover {
+	color: #5A5A70;
 }
 
 body {
@@ -43,10 +63,49 @@ body {
 
 .info {
 	font: 100% Verdana;
-	padding-left: 1em;
+	margin-left: 1em;
+	margin-right: 1em;
 	padding-bottom: 0.6em;
 }
 
 .info p {
 	padding-left: 1em;
+}
+
+ul {
+	text-align: center;
+	list-style-type: none;
+	margin-top: 0.4em;
+	padding: 0;
+}
+
+ul li {
+	display: inline;
+	padding-left: 0.8em;
+	padding-right: 0.8em;
+}
+
+input {
+	margin-left: 2em;
+}
+
+footer {
+	border-top: 1px solid #3498db;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+#innerInfo {
+	margin-left: 1em;
+	margin-right: 7em;
+	text-align: right;
+}
+
+#innerInfo p {
+	border-bottom: 1px solid #C6C6C6;
+	padding-left: 0;
+	text-align: left;
+}
+
+#innerInfo input {
 }
