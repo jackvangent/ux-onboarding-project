@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<title>User Profile</title>
+		<link href="css/styles.css" rel="stylesheet" type="text/css">
+		<script src="node_modules/angular/angular.min.js"></script>
+		<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script src="node_modules/angular-resource/angular-resource.min.js"></script>
+		<script src="assets/js/modules/myApp.js"></script>
+		<script src="assets/js/routes/routes.js"></script>
+		<script src="assets/js/controllers/minCtrl.js"></script>
+	</head>
+	<body class="box">
+		<div>
+			<header>
+				<h1>User Profile</h1>
+			</header>
+			<div class="innerbox">
+				<main>
+				<div ui-view></div>
+				</main>
+			</div>
+		</div>
+	</body>
+	<footer>
+		<ul>
+			<li><a ui-sref="Profile">user info</a></li>
+			<li><a ui-sref="EditProfile">edit profile</a></li>
+			<li><a ui-sref="UserList">user list</a></li>
+		</ul>
+	</footer>
+</html>
