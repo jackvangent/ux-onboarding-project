@@ -9,12 +9,18 @@
 		<script src="node_modules/angular-resource/angular-resource.min.js"></script>
 		<script src="assets/js/modules/myApp.js"></script>
 		<script src="assets/js/routes/routes.js"></script>
-		<script src="assets/js/controllers/minCtrl.js"></script>
+		<script src="assets/js/factories/userFactory.js"></script>
+		<script src="assets/js/factories/editFactory.js"></script>
+		<script src="assets/js/services/getService.js"></script>
+		<script src="assets/js/services/userService.js"></script>
+		<script src="assets/js/controllers/profileCtrl.js"></script>
+		<script src="assets/js/controllers/editCtrl.js"></script>
+		<script src="assets/js/controllers/listCtrl.js"></script>
 	</head>
 	<body class="box">
 		<div>
 			<header>
-				<h1>User Profile</h1>
+				<h1>Cool App</h1>
 			</header>
 			<div class="innerbox">
 				<main>
@@ -24,10 +30,10 @@
 		</div>
 	</body>
 	<footer>
-		<ul>
-			<li><a ui-sref="Profile">user info</a></li>
-			<li><a ui-sref="EditProfile">edit profile</a></li>
-			<li><a ui-sref="UserList">user list</a></li>
+		<ul class="viewOptions">
+			<li><a ui-sref="profile">user info</a></li>
+			<li><a ui-sref="edit">edit/create profile</a></li>
+			<li><a ui-sref="list">user list</a></li>
 		</ul>
 	</footer>
 </html>

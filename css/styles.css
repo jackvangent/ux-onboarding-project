@@ -23,7 +23,7 @@ a {
 	color: #3498db;
 }
 
-button {
+#minButton {
 	background-color: transparent;
 	border: none;
 	font-style: italic;
@@ -33,6 +33,7 @@ button {
 	position: absolute;
 	bottom: 1px;
 	right: 0;
+	cursor: pointer;
 }
 
 button:hover {
@@ -45,6 +46,10 @@ button::-moz-focus-inner {
 
 a:hover {
 	color: #5A5A70;
+}
+
+a:active,a:focus {
+	outline: none;
 }
 
 body {
@@ -66,20 +71,21 @@ body {
 	margin-left: 1em;
 	margin-right: 1em;
 	padding-bottom: 0.6em;
+	position: relative;
 }
 
 .info p {
 	padding-left: 1em;
 }
 
-ul {
+.viewOptions {
 	text-align: center;
 	list-style-type: none;
 	margin-top: 0.4em;
 	padding: 0;
 }
 
-ul li {
+.viewOptions li {
 	display: inline;
 	padding-left: 0.8em;
 	padding-right: 0.8em;
@@ -87,6 +93,7 @@ ul li {
 
 input {
 	margin-left: 2em;
+	margin-bottom: 2px;
 }
 
 footer {
@@ -107,5 +114,160 @@ footer {
 	text-align: left;
 }
 
-#innerInfo input {
+#formButton {
+	margin: 0.5em;
+	border: 1px solid #C6C6C6;
+	border-radius: 7px;
+	height: 2em;
+	color: #46C546;
+	cursor: pointer;
+	background-color: #E5EAEA;
+}
+
+#formButton:hover {
+	color: #E5EAEA;
+	background-color: #46C546;
+	border: 1px solid #46C546;
+}
+
+#formButton:disabled {
+	color: #C6C6C6;
+	background-color: #E5EAEA;
+	border-color: #C6C6C6;
+}
+
+input.ng-pristine {
+	border: 1px solid #C6C6C6;
+	border-radius: 4px;
+}
+
+input.ng-dirty {
+	border: 1px solid red;
+	border-radius: 4px;
+}
+
+input.ng-valid {
+	border: 1px solid green;
+	border-radius: 4px;
+}
+
+input:disabled {
+	border: none;
+}
+
+.fixedTableContainer {
+	height: 253px;
+	overflow-y: scroll;
+	margin-bottom: 1em;
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+.userList {
+	list-style-type: none;
+	padding-left: 0em;
+	margin-top: 0;
+}
+
+.listInfo {
+	color: #5A5A70;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 0;
+	margin-right: 4em;
+	margin-left: 2em;	
+	border-top: 1px solid #C6C6C6;
+	border-bottom: 1px solid #C6C6C6;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.userRow {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	height: 30px;
+	width: 95%;
+	border-bottom: 1px solid #C6C6C6;
+	position: relative;
+	cursor: pointer;
+}
+
+.userRow:hover {
+	background-color: #C6C6C6;
+}
+
+.userRow p {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	height: 180%;
+	margin-left: 0;
+	height: 25px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 70%;
+}
+
+.deleteButton {
+	position: absolute;
+	bottom: 3px;
+	left: 82%;
+	border: 1px solid #C6C6C6;
+	border-radius: 7px;
+	height: 2.3em;
+	background-color: #E5EAEA;
+	color: #e74c3c;
+	cursor: pointer;
+}
+
+.deleteButton:hover {
+	background-color: #e74c3c;
+	border-color: #e74c3c;
+	color: #E5EAEA;
+}
+
+.tabs {
+	list-style: none;
+	padding: 0;
+	margin-bottom: 0;
+	margin-left: 1.45em;
+}
+
+.tabs li {
+	display: inline;
+	border: 1px solid #C6C6C6;
+	border-width: 1px 1px 0 1px;
+	margin: 0 1em 0 0;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	font: 1.3em Verdana;
+	color: #5A5A70;
+}
+
+.tabs li a {
+	padding: 0.1em;
+	text-decoration: none;
+	color: #5A5A70;
+}
+
+.content {
+	width: 90%;
+	border-top: 1px solid #DCDCDC;
+	border-bottom: 1px solid #DCDCDC;
+	margin-bottom: 1em;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.selected {
+	background-color: #DCDCDC;
+	border-bottom: 0px;
+}
+
+.selected li {
+	background-color: orange;
 }
