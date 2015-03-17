@@ -1,7 +1,0 @@
-<div class="info" ng-controller="EditController">
-	<ul class="tabs">
-		<li ng-class="{'selected' : tab1, 'notSelected' : !tab1}"><a ui-sref="edit.new" id="tab1" ng-click="tab1 = true; tab2 = false">Create Profile</a></li>
-		<li ng-class="{'selected' : tab2, 'notSelected' : !tab2}"><a ui-sref="edit.edituser" id="tab2" ng-click="tab1 = false; tab2 = true">Edit Profile</a></li>
-	</ul>
-	<div class="content" ui-view></div>
-</div>
