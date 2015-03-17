@@ -1,16 +1,22 @@
 myApp.config(function($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise("/profile");
+
+	$urlRouterProvider.otherwise('list');
+
 	$stateProvider
-		.state('Profile', {
-			url: "/profile",
-			templateUrl: "assets/templates/userProf.html"
+		.state('profile', {
+			url: '/profile',
+			templateUrl: 'assets/templates/profile.html'
 		})
-		.state('EditProfile', {
-			url: "/edit",
-			templateUrl: "assets/templates/userEdit.html"
+		.state('edituser', {
+			url: '/edit',
+			templateUrl: 'assets/templates/edituser.html'
 		})
-		.state('UserList', {
-			url: "/list",
-			templateUrl: "assets/templates/userList.html"
-		});
+		.state('new', {
+			url:'/new',
+			templateUrl: 'assets/templates/new.html'
+		})
+		.state('list', {
+			url: '/list',
+			templateUrl: 'assets/templates/list.html'
+		})
 });
