@@ -1,19 +1,22 @@
-myApp.controller('ListController', function($scope, userService, userFactory) {
+myApp.controller('ListController', function($scope, userService, userFactory, $state) {
 
 	$scope.userSelected = userService.userSelected;
 	$scope.currentUser = userService.currentUser;
 	$scope.userList = userService.userList;
-	
-	/*getService.list()
-		.then(function(result) {
-			$scope.userList = result;
-		});*/
 
 	$scope.setCurrent = function(user) {
 		userService.currentUser = user;
 		userService.userSelected = true;
 		$scope.currentUser = user;
 		$scope.userSelected = true;
+	};
+
+	$scope.toEditState = function() {
+		$state.go('edituser');
+	};
+
+	$scope.toNewState = function() {
+		$state.go('new');
 	};
 
 	$scope.deleteUser = function() {
@@ -25,6 +28,8 @@ myApp.controller('ListController', function($scope, userService, userFactory) {
 				});
 			userService.currentUser = null;
 			userService.userSelected = false;
+			$scope.currentUser = null;
+			$scope.userSelected = false;
 		};
 	};
 });

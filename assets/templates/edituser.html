@@ -1,5 +1,6 @@
 <div ng-controller="EditController">
 	<div ng-show="userSelected">
+		<h3>Edit User</h3>
 		<form name="editForm" id="innerInfo" novalidate="novalidate">
 			<p>Name</p>
 			<input type="text" name="first" placeholder="{{currentUser.firstName}}" ng-model="editData.firstName" required="required"/>
