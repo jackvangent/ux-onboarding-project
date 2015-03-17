@@ -1,31 +1,17 @@
 myApp.config(function($stateProvider, $urlRouterProvider) {
 
-	//Having trouble getting a default nested state to work, commented out stuff
-	// is stuff I've tried
-
-	$urlRouterProvider.otherwise('/profile');
-	//$urlRouterProvider.when('/edit', '/edit/new'); //this only works on /edit page refresh
+	$urlRouterProvider.otherwise('list');
 
 	$stateProvider
 		.state('profile', {
 			url: '/profile',
 			templateUrl: 'assets/templates/profile.html'
 		})
-		.state('edit', {
+		.state('edituser', {
 			url: '/edit',
-			templateUrl: 'assets/templates/edit.html',
-			//abstract: true
-			//params: {
-			//	autoActivateChild: 'edit.new'
-			//}
-		})
-		.state('edit.edituser', {
-			//parent: 'EditProfileParent',
-			url: '/existing',
 			templateUrl: 'assets/templates/edituser.html'
 		})
-		.state('edit.new', {
-			//parent: 'EditProfileParent',
+		.state('new', {
 			url:'/new',
 			templateUrl: 'assets/templates/new.html'
 		})
