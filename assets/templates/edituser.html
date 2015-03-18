@@ -1,16 +1,7 @@
 <div ng-controller="EditController">
 	<div ng-show="userSelected">
 		<h3>Edit User</h3>
-		<form name="editForm" id="innerInfo" novalidate="novalidate">
-			<p>Name</p>
-			<input type="text" name="first" placeholder="{{currentUser.firstName}}" ng-model="editData.firstName" required="required"/>
-			<input type="text" name="last" placeholder="{{currentUser.lastName}}" ng-model="editData.lastName" required="required"/>
-			<p>Email</p>
-			<input type="email" name="email" placeholder="Email cannot be changed" disabled="disabled"/>
-			<p>Phone</p>
-			<input type="tel" name="phone" placeholder="{{currentUser.phone}}" ng-model="editData.phone" required="required" ng-pattern="phoneRegex"/>
-		</form>
-		<button id="formButton" ng-click="editUser()" ng-disabled="!editForm.$valid">Edit User</button>
+		<jvg-form form-type="edit" ng-model="editData"></jvg-form>
 	</div>
 	<div ng-show="!userSelected">
 		<p>No user selected</p>

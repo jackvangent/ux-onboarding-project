@@ -9,17 +9,17 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 	$scope.tab1 = false;
 	$scope.tab2 = false;
 
-	$scope.newPost = function() {
-		var post = new userFactory($scope.postData);
+	$scope.newPost = function(postData) {
+		var post = new userFactory(postData);
 		post.$create()
 			.then(function() {
 				userService.userList = userFactory.query();
 			});
 	};
 
-	$scope.editUser = function() {
-		$scope.editData.email = $scope.currentUser.email;
-		userFactory.update({id:userService.currentUser._id}, $scope.editData)
+	$scope.editUser = function(editData) {
+		editData.email = $scope.currentUser.email;
+		userFactory.update({id:userService.currentUser._id}, editData)
 			.$promise.then(function() {
 				userService.userList = userFactory.query();
 			});

@@ -1,0 +1,10 @@
+<form name="createForm" id="innerInfo" novalidate="novalidate">
+	<p>Name</p>
+	<input type="text" name="first" placeholder="First" ng-model="postData.firstName" required="required"/>
+	<input type="text" name="last" placeholder="Last" ng-model="postData.lastName" required="required"/>
+	<p>Email</p>
+	<input type="email" name="email" placeholder="Email" ng-model="postData.email" required="required" ng-pattern="emailRegex"/>
+	<p>Phone</p>
+	<input type="tel" name="phone" placeholder="Phone Number" ng-model="postData.phone" required="required" ng-pattern="phoneRegex"/>
+</form>
+<button id="formButton" ng-click="newUser(postData)" ng-disabled="!createForm.$valid">Create User</button>
