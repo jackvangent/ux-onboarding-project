@@ -2,7 +2,7 @@ myApp.directive('jvgForm', function() {
 	return {
 		require: 'ngModel',
 		restrict: 'E',
-		link: function(scope, element, attrs, ngModelCtrl) {
+		link: function(scope, element, attrs) {
 			scope.makeTemplateUrl = function() {
 				return 'assets/templates/forms/' + attrs.formType + 'Form.html';
 			},
