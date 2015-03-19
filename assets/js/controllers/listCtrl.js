@@ -22,14 +22,15 @@ myApp.controller('ListController', function($scope, userService, userFactory, $s
 	$scope.deleteUser = function() {
 		if (confirm ("Are you sure you want to delete " + 
 			$scope.currentUser.firstName + " " + $scope.currentUser.lastName + "?")) {
-			userFactory.delete({id:userService.currentUser._id})
-				.$promise.then(function() {
-					$scope.userList = userFactory.query();
-				});
-			userService.currentUser = null;
-			userService.userSelected = false;
-			$scope.currentUser = null;
-			$scope.userSelected = false;
+				userFactory.delete({id:userService.currentUser._id})
+					.$promise.then(function() {
+						var index = $scope.userList.indexOf($scope.currentUser);
+						$scope.userList.splice(index, 1);
+						userService.currentUser = null;
+						userService.userSelected = false;
+						$scope.currentUser = null;
+						$scope.userSelected = false;
+					});
 		};
 	};
 });
