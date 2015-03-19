@@ -9,6 +9,7 @@ myApp.controller('ListController', function($scope, userService, userFactory, $s
 		userService.userSelected = true;
 		$scope.currentUser = user;
 		$scope.userSelected = true;
+		//open profile box
 	};
 
 	$scope.toEditState = function() {

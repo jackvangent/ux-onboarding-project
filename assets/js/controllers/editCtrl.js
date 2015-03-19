@@ -11,6 +11,7 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 	};
 
 	$scope.newPost = function(postData) {
+		postData.phone = formatPhoneNumber(postData.phone);
 		var post = new userFactory(postData);
 		post.$create()
 			.then(function(newUser) {
@@ -20,6 +21,7 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 	};
 
 	$scope.editUser = function(editData) {
+		editData.phone = formatPhoneNumber(editData.phone);
 		editData.email = $scope.currentUser.email;
 		userFactory.update({id:userService.currentUser._id}, editData)
 			.$promise.then(function() {
@@ -31,5 +33,24 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 				userService.userList[index] = editMe;
 				$scope.toListState();
 			});
+	};
+
+	var formatPhoneNumber = function(phoneNumber) {
+		/*if (stringContains(phoneNumber, ' ')) {
+			phoneNumber.replace(/ /g, '');
+		};
+		if (stringContains(phoneNumber, '-')) {
+			phoneNumber.replace(/-/g, '');
+		};*/
+		return phoneNumber.replace(/ |-/g, '')
+	};
+
+	var stringContains = function(string, element) {
+		for (var i = 0; i < string.length; i++) {
+			if (string.charAt(i) == element) {
+				return true
+			};
+		};
+		return false;
 	};
 });
