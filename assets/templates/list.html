@@ -1,10 +1,6 @@
-<div class="info" ng-controller="ListController" ng-init="init()">
+<div class="info" ng-controller="ListController">
 	<h3>User List <button class="createButton" ng-click="toNewState()">Create New</button></h3>
 	<p class="listInfo" ng-show="!userSelected">Click to select a user</p>
 	<p class="listInfo" ng-show="userSelected">Current User: {{currentUser.firstName}} {{currentUser.lastName}}</p>
-	<div class="fixedTableContainer">
-		<ul class="userList">
-			<li class="userRow" ng-repeat="user in userList"><p ng-click="setCurrent(user)">{{user.firstName}} {{user.lastName}}</p><button class="editButton" ng-click="setCurrent(user); toEditState()">Edit</button><button class="deleteButton" ng-click="setCurrent(user); deleteUser()">Delete</button></li>
-		</ul>
-	</div>
+	<jvg-list list="userList"></jvg-list>
 </div>

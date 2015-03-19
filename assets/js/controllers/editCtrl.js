@@ -6,22 +6,30 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 	$scope.phoneRegex = /^(\(?([0-9]{3})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 	$scope.emailRegex = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
 
-	$scope.tab1 = false;
-	$scope.tab2 = false;
+	$scope.toListState = function() {
+		$state.go('list');
+	};
 
-	$scope.newPost = function() {
-		var post = new userFactory($scope.postData);
+	$scope.newPost = function(postData) {
+		var post = new userFactory(postData);
 		post.$create()
-			.then(function() {
-				userService.userList = userFactory.query();
+			.then(function(newUser) {
+				userService.userList.push(newUser);
+				$scope.toListState();
 			});
 	};
 
-	$scope.editUser = function() {
-		$scope.editData.email = $scope.currentUser.email;
-		userFactory.update({id:userService.currentUser._id}, $scope.editData)
+	$scope.editUser = function(editData) {
+		editData.email = $scope.currentUser.email;
+		userFactory.update({id:userService.currentUser._id}, editData)
 			.$promise.then(function() {
-				userService.userList = userFactory.query();
+				var index = userService.userList.indexOf($scope.currentUser);
+				var editMe = userService.userList[index];
+				editMe.firstName = editData.firstName;
+				editMe.lastName = editData.lastName;
+				editMe.phone = editData.phone;
+				userService.userList[index] = editMe;
+				$scope.toListState();
 			});
 	};
 });
