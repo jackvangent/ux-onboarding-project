@@ -9,7 +9,6 @@ myApp.controller('ListController', function($scope, userService, userFactory, $s
 		userService.userSelected = true;
 		$scope.currentUser = user;
 		$scope.userSelected = true;
-		//open profile box
 	};
 
 	$scope.toEditState = function() {
@@ -19,6 +18,11 @@ myApp.controller('ListController', function($scope, userService, userFactory, $s
 	$scope.toNewState = function() {
 		$state.go('new');
 	};
+
+	$scope.minimize = function() {
+		$scope.userSelected = false;
+		userService.userSelected = false;
+	}
 
 	$scope.deleteUser = function() {
 		if (confirm ("Are you sure you want to delete " + 

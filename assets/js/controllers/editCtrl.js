@@ -17,6 +17,7 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 			.then(function(newUser) {
 				userService.userList.push(newUser);
 				$scope.toListState();
+				userService.currentUser = newUser;
 			});
 	};
 
@@ -36,21 +37,7 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 	};
 
 	var formatPhoneNumber = function(phoneNumber) {
-		/*if (stringContains(phoneNumber, ' ')) {
-			phoneNumber.replace(/ /g, '');
-		};
-		if (stringContains(phoneNumber, '-')) {
-			phoneNumber.replace(/-/g, '');
-		};*/
+		//removes spaces and hyphens from phone number
 		return phoneNumber.replace(/ |-/g, '')
-	};
-
-	var stringContains = function(string, element) {
-		for (var i = 0; i < string.length; i++) {
-			if (string.charAt(i) == element) {
-				return true
-			};
-		};
-		return false;
 	};
 });
