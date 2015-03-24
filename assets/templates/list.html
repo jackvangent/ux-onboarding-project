@@ -1,5 +1,7 @@
 <div class="info" ng-controller="ListController">
 	<h3>User List <button class="createButton" ng-click="toNewState()">Create New</button></h3>
+	<input type="search" class="userSearch" placeholder="Search" ng-model="searchText"/>
+	<button id="clearSearchBtn" ng-click="searchText = null">clear</button>
 	<p class="listInfo" ng-show="!userSelected">Click to select a user</p>
 	<div class="profileBox" ng-show="userSelected" ng-hide="!userSelected">
 		<div class="btnBar">
