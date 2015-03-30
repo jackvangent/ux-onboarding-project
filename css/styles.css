@@ -46,18 +46,18 @@ button::-moz-focus-inner {
 	border: 0;
 }
 
-body {
+.box {
 	background: #DDDDDD;
 	margin-left: 6%;
 	margin-top: 3%;
 	text-decoration: #FFF;
-}
-
-.box {
 	background: #E5EAEA;
 	width: 40%;
-	border: 1px solid #C6C6C6;
-	border-radius: 15px;
+	border-top: 1px solid #C6C6C6;
+}
+
+.uiViewBox {
+	border-bottom: 1px solid #C6C6C6;
 }
 
 .info {
@@ -367,9 +367,6 @@ input:disabled {
 	font-style: italic;
 	color: #B1B1B1;
 	outline: 0;
-	/*position: absolute;*/
-	/*bottom: 1px;*/
-	/*right: 0;*/
 	right: 10px;
 	cursor: pointer;
 }

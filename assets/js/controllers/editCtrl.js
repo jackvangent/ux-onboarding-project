@@ -37,7 +37,7 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 	};
 
 	var formatPhoneNumber = function(phoneNumber) {
-		//removes spaces and hyphens from phone number
+		//removes spaces and hyphens from phone number before storage
 		return phoneNumber.replace(/ |-/g, '')
 	};
 });
