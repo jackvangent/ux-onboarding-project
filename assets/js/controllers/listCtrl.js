@@ -19,6 +19,11 @@ myApp.controller('ListController', function($scope, userService, userFactory, $s
 		$state.go('new');
 	};
 
+	$scope.minimize = function() {
+		$scope.userSelected = false;
+		userService.userSelected = false;
+	}
+
 	$scope.deleteUser = function() {
 		if (confirm ("Are you sure you want to delete " + 
 			$scope.currentUser.firstName + " " + $scope.currentUser.lastName + "?")) {

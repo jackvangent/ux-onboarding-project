@@ -1,5 +1,5 @@
 <div class="fixedTableContainer">
 	<ul class="userList">
-		<li class="userRow" ng-repeat="user in userList"><p ng-click="setCurrent(user)">{{user.firstName}} {{user.lastName}}</p><button class="editButton" ng-click="setCurrent(user); toEditState()">Edit</button><button class="deleteButton" ng-click="setCurrent(user); deleteUser()">Delete</button></li>
+		<li ng-repeat="user in userList | filter:searchText" class="userRow"><p ng-click="setCurrent(user)">{{user.firstName}} {{user.lastName}}</p><button class="editButton" ng-click="setCurrent(user); toEditState()">Edit</button><button class="deleteButton" ng-click="setCurrent(user); deleteUser()">Delete</button></li>
 	</ul>
 </div>

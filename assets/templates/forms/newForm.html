@@ -8,3 +8,4 @@
 	<input type="tel" name="phone" placeholder="Phone Number" ng-model="postData.phone" required="required" ng-pattern="phoneRegex"/>
 </form>
 <button id="formButton" ng-click="newUser(postData)" ng-disabled="!createForm.$valid">Create User</button>
+<button id="cancelBtn" ng-click="toListState()">Cancel</button>

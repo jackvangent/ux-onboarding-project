@@ -3,10 +3,6 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('list');
 
 	$stateProvider
-		.state('profile', {
-			url: '/profile',
-			templateUrl: 'assets/templates/profile.html'
-		})
 		.state('edituser', {
 			url: '/edit',
 			templateUrl: 'assets/templates/edituser.html'

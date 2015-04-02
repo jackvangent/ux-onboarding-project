@@ -8,3 +8,4 @@
 	<input type="tel" name="phone" placeholder="{{currentUser.phone}}" ng-model="editData.phone" required="required" ng-pattern="phoneRegex"/>
 </form>
 <button id="formButton" ng-click="editCurrent(editData)" ng-disabled="!editForm.$valid">Edit User</button>
+<button id="cancelBtn" ng-click="toListState()">Cancel</button>
