@@ -5,14 +5,14 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
 		.state('edituser', {
 			url: '/edit',
-			templateUrl: 'assets/templates/edituser.html'
+			templateUrl: 'templates/edituser.html'
 		})
 		.state('new', {
 			url:'/new',
-			templateUrl: 'assets/templates/new.html'
+			templateUrl: 'templates/new.html'
 		})
 		.state('list', {
 			url: '/list',
-			templateUrl: 'assets/templates/list.html'
+			templateUrl: 'templates/list.html'
 		})
 });
