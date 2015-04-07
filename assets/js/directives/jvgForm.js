@@ -4,7 +4,7 @@ myApp.directive('jvgForm', function() {
 		restrict: 'E',
 		link: function(scope, element, attrs) {
 			scope.makeTemplateUrl = function() {
-				return 'assets/templates/forms/' + attrs.formType + 'Form.html';
+				return 'templates/' + attrs.formType + 'Form.html';
 			},
 			scope.newUser = function(postData) {
 				scope.newPost(postData);
