@@ -3,7 +3,8 @@ module.exports = function(grunt) {
 		public: 'dist/',
 		private: 'assets/',
 		npm: 'node_modules/',
-		temp: 'temp/'
+		temp: 'temp/',
+		test: 'assets/test'
 	};
 
 	var files = {
@@ -79,6 +80,32 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		karma: {
+			options: {
+				plugins: [
+					'karma-jasmine',
+					'karma-phantomjs-launcher'
+				],
+				frameworks: ['jasmine'],
+				files: [
+					// paths.deps, shit dont work gotta do it this way:
+					// '<%= paths.npm %>angular/angular.min.js',
+					// '<%= paths.npm %>angular-animate/angular-animate.min.js',
+					// '<%= paths.npm %>angular-resource/angular-resource.min.js',
+					// '<%= paths.npm %>angular-ui-router/release/angular-ui-router.min.js'
+					'<%= paths.public %>/js/application.js'
+					//TEST FILE GOES HERE FOR SURE
+					// '<%= paths.test %>/unit/*.js'
+				],
+				browsers: ['PhantomJS'],
+				autoWatch: false,
+				singleRun: false
+			},
+			unit: {
+				singleRun: true,
+				browsers: ['PhantomJS']
+			}
+		},
 		watch: {
 			js: {
 				files: files.js,
@@ -87,6 +114,13 @@ module.exports = function(grunt) {
 			others: {
 				files: files.css,
 				tasks: ['copy']
+			},
+			karma: {
+				files: [
+					files.js,
+					'Gruntfile.js'
+				],
+				tasks: ['karma:unit']
 			}
 		}
 	});
@@ -97,6 +131,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', ['clean:first', 'ngtemplates','concat', 'clean:last', 'copy', 'connect', 'watch']);
+	// grunt.registerTask('dev', ['clean:first', 'ngtemplates','concat', 'clean:last', 'copy', 'connect', 'karma:unit', 'watch']);
 };
