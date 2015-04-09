@@ -20,7 +20,8 @@ module.exports = function(grunt) {
 			'<%= paths.npm %>angular/angular.min.js',
 			'<%= paths.npm %>angular-animate/angular-animate.min.js',
 			'<%= paths.npm %>angular-resource/angular-resource.min.js',
-			'<%= paths.npm %>angular-ui-router/release/angular-ui-router.min.js'
+			'<%= paths.npm %>angular-ui-router/release/angular-ui-router.min.js',
+			'<%= paths.npm %>angular-mocks/angular-mocks.js'
 		]
 	};
 
@@ -88,14 +89,13 @@ module.exports = function(grunt) {
 				],
 				frameworks: ['jasmine'],
 				files: [
-					// paths.deps, shit dont work gotta do it this way:
 					// '<%= paths.npm %>angular/angular.min.js',
 					// '<%= paths.npm %>angular-animate/angular-animate.min.js',
 					// '<%= paths.npm %>angular-resource/angular-resource.min.js',
 					// '<%= paths.npm %>angular-ui-router/release/angular-ui-router.min.js'
-					'<%= paths.public %>/js/application.js'
+					'<%= paths.public %>/js/application.js',
 					//TEST FILE GOES HERE FOR SURE
-					// '<%= paths.test %>/unit/*.js'
+					'<%= paths.test %>/unit/*.js'
 				],
 				browsers: ['PhantomJS'],
 				autoWatch: false,
@@ -118,6 +118,7 @@ module.exports = function(grunt) {
 			karma: {
 				files: [
 					files.js,
+					'<%= paths.test %>/unit/*.js',
 					'Gruntfile.js'
 				],
 				tasks: ['karma:unit']
