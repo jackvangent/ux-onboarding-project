@@ -4,7 +4,7 @@ describe('Tests for controllers', function() {
 
 	var mockUser = {firstName: 'Jane', lastName: 'Doe', phone: '3198301234', email: 'janedoe@gmail.com'};
 
-	describe('Tests for EditController', function() {
+	describe('Tests for EditController:', function() {
 
 		var EditController, ctrlScope, userFactory;
 
@@ -40,13 +40,43 @@ describe('Tests for controllers', function() {
 
 	});
 
-	describe('Tests for ListController', function() {
+	describe('Tests for ListController:', function() {
 
 		var ListController, ctrlScope;
 
 		beforeEach(inject(function($rootScope, $controller) {
 			ctrlScope = {};
-			EditController = $controller('EditController', { $scope: ctrlScope });
+			EditController = $controller('ListController', { $scope: ctrlScope });
+		}));
+
+		it ('should be able to go to edit state', inject(function($state) {
+			state = $state;
+			spyOn(state, 'go');
+			ctrlScope.toEditState();
+			expect(state.go).toHaveBeenCalled;
+		}));
+
+		it ('should be able to go to new state', inject(function($state) {
+			state = $state;
+			spyOn(state, 'go');
+			ctrlScope.toNewState();
+			expect(state.go).toHaveBeenCalled;
+		}));
+
+		it('should be able to set a current user', inject(function(userService) {
+			ctrlScope.setCurrent(mockUser);
+			expect(ctrlScope.currentUser).toEqual(mockUser);
+			expect(ctrlScope.userSelected).toBe(true);
+			expect(userService.currentUser).toEqual(mockUser);
+			expect(userService.userSelected).toBe(true);
+		}));
+
+		it('should be able to forget its current user', inject(function(userService) {
+			ctrlScope.minimize();
+			expect(ctrlScope.currentUser).toBe(null);
+			expect(ctrlScope.userSelected).toBe(false);
+			expect(userService.currentUser).toBe(null);
+			expect(userService.userSelected).toBe(false);
 		}));
 
 	})
