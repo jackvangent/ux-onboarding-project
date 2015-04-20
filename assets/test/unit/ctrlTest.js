@@ -26,7 +26,7 @@ describe('Tests for controllers', function() {
 			state = $state;
 			spyOn(state, 'go');
 			ctrlScope.toListState();
-			expect(state.go).toHaveBeenCalled;
+			expect(state.go).toHaveBeenCalledWith('list');
 		}));
 
 		//add user
@@ -53,14 +53,14 @@ describe('Tests for controllers', function() {
 			state = $state;
 			spyOn(state, 'go');
 			ctrlScope.toEditState();
-			expect(state.go).toHaveBeenCalled;
+			expect(state.go).toHaveBeenCalledWith('edituser');
 		}));
 
 		it ('should be able to go to new state', inject(function($state) {
 			state = $state;
 			spyOn(state, 'go');
 			ctrlScope.toNewState();
-			expect(state.go).toHaveBeenCalled;
+			expect(state.go).toHaveBeenCalledWith('new');
 		}));
 
 		it('should be able to set a current user', inject(function(userService) {
