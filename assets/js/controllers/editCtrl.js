@@ -22,7 +22,7 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 	};
 
 	$scope.editUser = function(editData) {
-		editData.phone = formatPhoneNumber(editData.phone);
+		editData.phone = $scope.formatPhoneNumber(editData.phone);
 		editData.email = $scope.currentUser.email;
 		userFactory.update({id:userService.currentUser._id}, editData)
 			.$promise.then(function() {
@@ -36,7 +36,7 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 			});
 	};
 
-	var formatPhoneNumber = function(phoneNumber) {
+	$scope.formatPhoneNumber = function(phoneNumber) {
 		//removes spaces and hyphens from phone number before storage
 		return phoneNumber.replace(/ |-/g, '')
 	};
