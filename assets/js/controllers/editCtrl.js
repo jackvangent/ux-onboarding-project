@@ -3,6 +3,7 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 	$scope.userSelected = userService.userSelected;
 	$scope.currentUser = userService.currentUser;
 
+
 	$scope.phoneRegex = /^(\(?([0-9]{3})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 	$scope.emailRegex = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
 
@@ -11,7 +12,7 @@ myApp.controller('EditController', function($scope, userFactory, userService, $s
 	};
 
 	$scope.newPost = function(postData) {
-		postData.phone = formatPhoneNumber(postData.phone);
+		postData.phone = $scope.formatPhoneNumber(postData.phone);
 		var post = new userFactory(postData);
 		post.$create()
 			.then(function(newUser) {
