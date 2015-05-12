@@ -25,10 +25,10 @@ describe('Tests controller methods that use $resource', function() {
 	beforeEach(inject(function(_$httpBackend_, _userFactory_) {
 		$httpBackend = _$httpBackend_;
 		userFactory = _userFactory_;
-		getRequestHandler = $httpBackend.whenGET('http://localhost:24149/users').respond(userList);
-		delRequestHandler = $httpBackend.whenDELETE('http://localhost:24149/users/9123').respond(userList[1]);
-		postRequestHandler = $httpBackend.whenPOST('http://localhost:24149/users').respond(CliveBixby);
-		putRequestHandler = $httpBackend.whenPUT('http://localhost:24149/users').respond(CliveBixby);
+		getRequestHandler = $httpBackend.whenGET('http://localhost:24149/users').respond();
+		delRequestHandler = $httpBackend.whenDELETE('http://localhost:24149/users/9123').respond();
+		postRequestHandler = $httpBackend.whenPOST('http://localhost:24149/users').respond();
+		putRequestHandler = $httpBackend.whenPUT('http://localhost:24149/users/9123103').respond();
 	}));
 
 	afterEach(function() {
@@ -81,7 +81,9 @@ describe('Tests controller methods that use $resource', function() {
 		});
 
 		it('should edit a user\'s info', function() {
-			$httpBackend.expectPUT('http://localhost:24149/users');
+			editScope.newPost(CliveBixby);
+			$httpBackend.flush();
+			$httpBackend.expectPUT('http://localhost:24149/users/9123103');
 			editScope.editUser(NewGuy);
 			$httpBackend.flush();
 		});
