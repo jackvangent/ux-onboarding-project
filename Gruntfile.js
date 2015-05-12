@@ -135,5 +135,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', ['clean:first', 'ngtemplates','concat', 'clean:last', 'copy', 'connect', 'watch']);
-	// grunt.registerTask('dev', ['clean:first', 'ngtemplates','concat', 'clean:last', 'copy', 'connect', 'karma:unit', 'watch']);
+	//grunt.registerTask('dev', ['clean:first', 'ngtemplates','concat', 'clean:last', 'copy', 'connect', 'karma:unit', 'watch']);
 };
