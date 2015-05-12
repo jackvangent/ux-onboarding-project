@@ -89,12 +89,7 @@ module.exports = function(grunt) {
 				],
 				frameworks: ['jasmine'],
 				files: [
-					// '<%= paths.npm %>angular/angular.min.js',
-					// '<%= paths.npm %>angular-animate/angular-animate.min.js',
-					// '<%= paths.npm %>angular-resource/angular-resource.min.js',
-					// '<%= paths.npm %>angular-ui-router/release/angular-ui-router.min.js'
 					'<%= paths.public %>/js/application.js',
-					//TEST FILE GOES HERE FOR SURE
 					'<%= paths.test %>/unit/*.js'
 				],
 				browsers: ['PhantomJS'],
@@ -135,5 +130,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', ['clean:first', 'ngtemplates','concat', 'clean:last', 'copy', 'connect', 'watch']);
-	//grunt.registerTask('dev', ['clean:first', 'ngtemplates','concat', 'clean:last', 'copy', 'connect', 'karma:unit', 'watch']);
+	grunt.registerTask('unit', ['clean:first', 'ngtemplates', 'concat', 'clean:last', 'copy', 'connect', 'karma:unit', 'watch']);
 };
