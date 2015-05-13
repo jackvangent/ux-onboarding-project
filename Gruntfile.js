@@ -29,24 +29,22 @@ module.exports = function(grunt) {
 		paths: paths,
 		pkg: grunt.file.readJSON('package.json'),
 		clean: {
-			first: ['<%= paths.public %>', '<%= paths.temp %>'],
-			last: ['<%= paths.temp %>']
+			one: ['<%= paths.public %>', '<%= paths.temp %>'],
+			two: ['<%= paths.temp %>']
 		},
 		copy: {
 			main: {
-				files: [
-					{
-						expand: true,
-						flatten: true,
-						src: files.css,
-						dest: '<%= paths.public %>css'
-					}, {
-						expand: true,
-						flatten: true,
-						src: 'index.html',
-						dest: '<%= paths.public %>'
-					}
-				]
+				files: [{
+					expand: true,
+					flatten: true,
+					src: files.css,
+					dest: '<%= paths.public %>css'
+				}, {
+					expand: true,
+					flatten: true,
+					src: 'index.html',
+					dest: '<%= paths.public %>'
+				}]
 			}
 		},
 		connect: {
@@ -73,12 +71,10 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			main: {
-				files: [
-					{
-						src: files.deps.concat(files.js),
-						dest: '<%= paths.public %>js/application.js'
-					},
-				]
+				files: [{
+					src: files.deps.concat(files.js),
+					dest: '<%= paths.public %>js/application.js'
+				}, ]
 			}
 		},
 		karma: {
@@ -92,9 +88,7 @@ module.exports = function(grunt) {
 					'<%= paths.public %>/js/application.js',
 					'<%= paths.test %>/unit/*.js'
 				],
-				browsers: ['PhantomJS'],
-				autoWatch: false,
-				singleRun: false
+				browsers: ['PhantomJS']
 			},
 			unit: {
 				singleRun: true,
@@ -104,19 +98,23 @@ module.exports = function(grunt) {
 		watch: {
 			js: {
 				files: files.js,
-				tasks: ['concat']
+				tasks: ['ngtemplates', 'concat', 'karma:unit']
 			},
-			others: {
+			css: {
 				files: files.css,
 				tasks: ['copy']
 			},
-			karma: {
+			unitTests: {
 				files: [
-					files.js,
-					'<%= paths.test %>/unit/*.js',
-					'Gruntfile.js'
+					'<%= paths.test %>/unit/*.js'
 				],
 				tasks: ['karma:unit']
+			},
+			grunt: {
+				files: [
+					'Gruntfile.js'
+				],
+				tasks: ['gfChange']
 			}
 		}
 	});
@@ -129,6 +127,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-karma');
 
-	grunt.registerTask('default', ['clean:first', 'ngtemplates','concat', 'clean:last', 'copy', 'connect', 'watch']);
-	grunt.registerTask('unit', ['clean:first', 'ngtemplates', 'concat', 'clean:last', 'copy', 'connect', 'karma:unit', 'watch']);
+	grunt.registerTask('default', ['clean:one', 'ngtemplates', 'concat', 'clean:two', 'copy', 'connect', 'watch']);
+	grunt.registerTask('gfChange', ['clean:one', 'ngtemplates', 'concat', 'clean:two', 'copy', 'watch']);
+	grunt.registerTask('unit', ['clean:one', 'ngtemplates', 'concat', 'clean:two', 'copy', 'connect', 'karma:unit', 'watch']);
+
 };
