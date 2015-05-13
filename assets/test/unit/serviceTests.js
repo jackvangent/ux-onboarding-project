@@ -26,6 +26,7 @@ describe('Tests controller methods that use $resource', function() {
 		$httpBackend = _$httpBackend_;
 		userFactory = _userFactory_;
 		getRequestHandler = $httpBackend.whenGET('http://localhost:24149/users').respond();
+		getRequestHandler2 = $httpBackend.whenGET('templates/list.html').respond();
 		delRequestHandler = $httpBackend.whenDELETE('http://localhost:24149/users/9123').respond();
 		postRequestHandler = $httpBackend.whenPOST('http://localhost:24149/users').respond();
 		putRequestHandler = $httpBackend.whenPUT('http://localhost:24149/users/9123103').respond();
