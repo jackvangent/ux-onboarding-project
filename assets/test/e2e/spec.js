@@ -19,6 +19,30 @@ describe('ux onboarding app', function() {
 		});
 	});
 
-	//TODO: more ng-resource tests for all CRUD stuff, test forms, test filters
+	describe('tests for ui-router', function() {
+		it('should initially load to list state', function() {
+			expect(browser.getCurrentUrl()).toContain('list');
+		});
+
+		it('should switch to new state onclick of createButton, and go back to list state onclick of cancelBtn', function() {
+			element(by.className('createButton')).click();
+			expect(browser.getCurrentUrl()).toContain('new');
+			element(by.id('cancelBtn')).click();
+			expect(browser.getCurrentUrl()).toContain('list');
+		});
+
+		it('should switch to edit state onclick of editButton, and go back to list state onclick of cancelBtn', function() {
+			element.all(by.className('editButton')).first().click();
+			expect(browser.getCurrentUrl()).toContain('edit');
+			element.all(by.id('cancelBtn')).first().click();
+			expect(browser.getCurrentUrl()).toContain('list');
+		});
+
+		it('should switch to edit state onclick of editBtnLeft', function() {
+			element.all(by.className('userRow')).first().click();
+			element(by.id('editBtnLeft')).click();
+			expect(browser.getCurrentUrl()).toContain('edit');
+		});
+	});
 
 });
