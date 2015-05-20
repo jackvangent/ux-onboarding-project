@@ -115,6 +115,24 @@ module.exports = function(grunt) {
 					'Gruntfile.js'
 				],
 				tasks: ['gfChange']
+			},
+			e2eTests: {
+				files: [
+					'<%= paths.test %>/e2e/*.js'
+				],
+				tasks: ['protractor']
+			}
+		},
+		protractor: {
+			e2e: {
+				options: {
+					configFile: '<%= paths.test %>/e2e/conf.js',
+					keepAlive: true,
+					noColor: false,
+					args: {
+						browser: 'chrome'
+					}
+				}
 			}
 		}
 	});
@@ -126,9 +144,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-karma');
+	grunt.loadNpmTasks('grunt-protractor-runner');
 
 	grunt.registerTask('default', ['clean:one', 'ngtemplates', 'concat', 'clean:two', 'copy', 'connect', 'watch']);
 	grunt.registerTask('gfChange', ['clean:one', 'ngtemplates', 'concat', 'clean:two', 'copy', 'watch']);
 	grunt.registerTask('unit', ['clean:one', 'ngtemplates', 'concat', 'clean:two', 'copy', 'connect', 'karma:unit', 'watch']);
-
+	grunt.registerTask('e2e', ['clean:one', 'ngtemplates', 'concat', 'clean:two', 'copy', 'connect', 'protractor:e2e', 'watch']);
 };
